@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Case">
+      <UniqueIdentifier>{894f8e63-84ae-4759-b7d7-23b6a331b858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Case\RanderBox">
+      <UniqueIdentifier>{31de869e-e629-479c-bebe-bc71ec016071}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Case\RanderModel">
+      <UniqueIdentifier>{2a8c95ce-7eee-4dcb-bea3-1735fa4509c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShaderFile">
+      <UniqueIdentifier>{17c26ad0-2f47-45d8-b2ac-110f9e1a0f35}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="源.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderBox.cpp">
+      <Filter>Case\RanderBox</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderModel.cpp">
+      <Filter>Case\RanderModel</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBox.h">
+      <Filter>Case\RanderBox</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderModel.h">
+      <Filter>Case\RanderModel</Filter>
+    </ClInclude>
+    <ClInclude Include="Stencil.h">
+      <Filter>Case</Filter>
+    </ClInclude>
+    <ClInclude Include="BlendTest.h">
+      <Filter>Case</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OpenGLProject.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ShaderFile\object.frag">
+      <Filter>ShaderFile</Filter>
+    </None>
+    <None Include="ShaderFile\object.vs">
+      <Filter>ShaderFile</Filter>
+    </None>
+    <None Include="ShaderFile\light.frag">
+      <Filter>ShaderFile</Filter>
+    </None>
+    <None Include="ShaderFile\light.vs">
+      <Filter>ShaderFile</Filter>
+    </None>
+    <None Include="ShaderFile\model_loading.fs">
+      <Filter>ShaderFile</Filter>
+    </None>
+    <None Include="ShaderFile\model_loading.vs">
+      <Filter>ShaderFile</Filter>
+    </None>
+    <None Include="ShaderFile\outline.frag">
+      <Filter>ShaderFile</Filter>
+    </None>
+    <None Include="ShaderFile\unlit.frag">
+      <Filter>ShaderFile</Filter>
+    </None>
+    <None Include="ShaderFile\unlit.vs">
+      <Filter>ShaderFile</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Pictures\flower.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="..\..\..\Pictures\container.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="chicken.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="container2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="container2_specular.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="matrix.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
