@@ -28,10 +28,10 @@ int main()
 		0.05f,
 		5.0f);
 	//RenderBox::Render(camera);
-	//RenderModel(camera);
+	RenderModel(camera);
 	//RenderStencil(camera);
 	//RenderBlendTest(camera);
-	RenderPostPrecessingExample(camera);
+	//RenderPostPrecessingExample(camera);
 	return 0;
 }
 

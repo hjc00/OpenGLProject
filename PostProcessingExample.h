@@ -185,7 +185,7 @@ void RenderPostPrecessingExample(Camera& camera)
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	// Game loop
 	while (!glfwWindowShouldClose(window))
 	{

@@ -19,9 +19,9 @@ void Camera::HandleKeyboard(DIRECTION dir, float deltaTime)
 	if (DIRECTION::RIGHT == dir)
 		position += speed * right * deltaTime;
 
-	std::cout << "camera position x" << position.x << std::endl;
-	std::cout << "camera position y" << position.y << std::endl;
-	std::cout << "camera position z" << position.z << std::endl;
+	//std::cout << "camera position x" << position.x << std::endl;
+	//std::cout << "camera position y" << position.y << std::endl;
+	//std::cout << "camera position z" << position.z << std::endl;
 }
 
 void Camera::HandleMouse(float xoffset, float yoffset)
