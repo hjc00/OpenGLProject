@@ -106,7 +106,9 @@ void RenderStencil(Camera& camera)
 	glDepthFunc(GL_LESS);
 	glEnable(GL_STENCIL_TEST);
 	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);  // GL_REPLACE 当通过了模板测试时，用ref的值代替模板缓冲原来的值
-	// Game loop
+
+
+												// Game loop
 	while (!glfwWindowShouldClose(window))
 	{
 		// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
@@ -121,10 +123,11 @@ void RenderStencil(Camera& camera)
 		//// render object
 
 
+
 		glm::mat4 model = glm::mat4(1.0f);
 		glm::mat4 view = Window::camera.GetViewMat4();
 		glm::mat4 projection = glm::perspective<float>(glm::radians(Window::camera.Fov()), 1280 / 960, 0.1f, 100.0f);
-		
+
 
 
 		glStencilFunc(GL_ALWAYS, 1, 0xFF); // 让片元永远通过模板测试，并且以参考值1写入模板缓冲

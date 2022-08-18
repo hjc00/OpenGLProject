@@ -16,6 +16,7 @@
 #include"RenderModel.h"
 #include"Stencil.h"
 #include"BlendTest.h"
+#include"PostProcessingExample.h"
 
 int main()
 {
@@ -29,7 +30,8 @@ int main()
 	//RenderBox::Render(camera);
 	//RenderModel(camera);
 	//RenderStencil(camera);
-	RenderBlendTest(camera);
+	//RenderBlendTest(camera);
+	RenderPostPrecessingExample(camera);
 	return 0;
 }
 

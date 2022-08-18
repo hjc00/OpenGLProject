@@ -165,6 +165,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="PostProcessingExample.h" />
     <ClInclude Include="RenderBox.h" />
     <ClInclude Include="RenderModel.h" />
     <ClInclude Include="resource.h" />

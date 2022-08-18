@@ -52,6 +52,17 @@ void RenderBox::Render(Camera& camera)
 	  -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
 	};
 
+	float quadVertices[] = { // vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
+	// positions   // texCoords
+	-1.0f,  1.0f,  0.0f, 1.0f,
+	-1.0f, -1.0f,  0.0f, 0.0f,
+	 1.0f, -1.0f,  1.0f, 0.0f,
+
+	-1.0f,  1.0f,  0.0f, 1.0f,
+	 1.0f, -1.0f,  1.0f, 0.0f,
+	 1.0f,  1.0f,  1.0f, 1.0f
+	};
+
 	glm::vec3 cubePositions[] = {
 	glm::vec3(0.0f,  0.0f,  0.0f),
 	glm::vec3(2.0f,  5.0f, -15.0f),
@@ -105,35 +116,45 @@ void RenderBox::Render(Camera& camera)
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);  // 把OPEN GL当前的顶点缓冲对象绑定与VBO解绑
 
+		// screen quad VAO
+	unsigned int quadVAO, quadVBO;
+	glGenVertexArrays(1, &quadVAO);
+	glGenBuffers(1, &quadVBO);
+	glBindVertexArray(quadVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), &quadVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+
 	Shader objectShader("ShaderFile/object.vs", "ShaderFile/object.frag");
 	Shader lightShader("ShaderFile/light.vs", "ShaderFile/light.frag");
 	//Shader outlineShader("ShaderFile/)
-	GLuint diffuseMap = Utils::GenTexture("container2.png");
-	GLuint specularMap = Utils::GenTexture("container2_specular.png");
-	GLuint emitMap = Utils::GenTexture("matrix.jpg");
+	GLuint diffuseMap = Utils::GenTexture("Resources/container2.png");
+	GLuint specularMap = Utils::GenTexture("Resources/container2_specular.png");
+	GLuint emitMap = Utils::GenTexture("Resources/matrix.jpg");
 
 	objectShader.use();
 	objectShader.setInt("material.diffuse", 0);
 	objectShader.setInt("material.specular", 1);
 
 
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LESS);
 	// Game loop
+		glEnable(GL_DEPTH_TEST);
 	while (!glfwWindowShouldClose(window))
 	{
 		// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
 		glfwPollEvents();
 		Window::DoMovement();
 		Window::CalFrame();
-		// Render
-		// Clear the colorbuffer
+
+	
+
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
-		//// render object
-
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // 我们现在不使用模板缓冲
+#pragma region DrawScene
+		//std::cout << "object shader use" << std::endl;
 		objectShader.use();
 		objectShader.setFloat("material.shininess", 32.0f);
 		objectShader.setVec3("viewPos", Window::camera.Position());
@@ -231,10 +252,12 @@ void RenderBox::Render(Camera& camera)
 			lightShader.setMat4("model", model);
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 		}
+#pragma endregion
 
-		// Swap the screen buffers
+
+
 		glfwSwapBuffers(window);
-
+		glfwPollEvents();
 	}
 	glDeleteVertexArrays(1, &objectVAO);
 	glDeleteVertexArrays(1, &lightVAO);
