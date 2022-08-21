@@ -6,7 +6,7 @@
 class Shader
 {
 public:
-	Shader(const char* vertexPath, const char* fragPath);
+	Shader(const char* vertexPath, const char* fragPath, const char* geoPath = nullptr);
 	inline	void use() const {
 		glUseProgram(progrom);
 	}

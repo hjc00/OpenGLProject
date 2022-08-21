@@ -5,20 +5,35 @@
 #include <iostream>
 #include <gtc/type_ptr.hpp>
 
-Shader::Shader(const char* vertexPath, const char* fragPath) {
+Shader::Shader(const char* vertexPath, const char* fragPath, const char* geoPath) {
 
 	std::string vShaderCode = getShaderCode(vertexPath);
 	std::string fShaderCode = getShaderCode(fragPath);
+	std::string gShaderCode;
+	if (geoPath != nullptr)
+	{
+		gShaderCode = getShaderCode(geoPath);
+	}
 
 	GLint success;   // 编译结果
 	GLchar infoLog[512];  // 错误日志
 	GLuint vertex = complieShader(vShaderCode.c_str(), GL_VERTEX_SHADER, success, infoLog);
 	GLuint fragment = complieShader(fShaderCode.c_str(), GL_FRAGMENT_SHADER, success, infoLog);
+	GLuint geometry = NULL;
+	if (geoPath != nullptr)
+	{
+		geometry = complieShader(gShaderCode.c_str(), GL_GEOMETRY_SHADER, success, infoLog);
+	}
+
+
 
 	// Shader Program
 	this->progrom = glCreateProgram();
 	glAttachShader(this->progrom, vertex);
 	glAttachShader(this->progrom, fragment);
+	if (geoPath != NULL) {
+		glAttachShader(this->progrom, geometry);
+	}
 	glLinkProgram(this->progrom);
 	// Print linking errors if any
 	glGetProgramiv(this->progrom, GL_LINK_STATUS, &success);
@@ -30,7 +45,12 @@ Shader::Shader(const char* vertexPath, const char* fragPath) {
 	// Delete the shaders as they're linked into our program now and no longer necessery
 	glDeleteShader(vertex);
 	glDeleteShader(fragment);
+	if (geoPath != nullptr) {
+		glDeleteShader(geometry);
+	}
 }
+
+
 
 void Shader::setVec3(const char* locName, const float x, const float y, const float z)
 {
