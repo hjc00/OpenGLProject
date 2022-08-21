@@ -5,7 +5,9 @@ void RenderExplodeModel(Camera& camera) {
 
 	GLFWwindow* window = Window::InitWindow(1280, 960, camera);
 
-	Shader modelShader("ShaderFile/model_loading.vs", "ShaderFile/model_loading.fs", "ShaderFile/Explode.gs");
+	Shader explodeShader("ShaderFile/model_loading.vs", "ShaderFile/model_loading.fs", "ShaderFile/Explode.gs");
+	Shader modelShader("ShaderFile/model_loading.vs", "ShaderFile/model_loading.fs");
+	Shader displayNormalShader("ShaderFile/DisplayNormal.vs", "ShaderFile/DisplayNormal.fs", "ShaderFile/DisplayNormal.gs");
 	Model ourModel("Models/nanosuit/nanosuit.obj");
 
 
@@ -164,8 +166,15 @@ void RenderExplodeModel(Camera& camera) {
 		model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // Translate it down a bit so it's at the center of the scene
 		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// It's a bit too big for our scene, so scale it down
 		modelShader.setMat4("model", model);
-		modelShader.setFloat("time", static_cast<float>(glfwGetTime()));
+		//modelShader.setFloat("time", static_cast<float>(glfwGetTime()));
 		ourModel.Draw(modelShader);
+
+		displayNormalShader.use();
+		displayNormalShader.setMat4("model", model);
+		displayNormalShader.setMat4("projection", projection);
+		displayNormalShader.setMat4("view", view);
+		ourModel.Draw(displayNormalShader);
+
 		glBindVertexArray(0);
 
 		unlitShader.use();
