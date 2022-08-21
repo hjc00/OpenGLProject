@@ -18,6 +18,7 @@
 #include"BlendTest.h"
 #include"PostProcessingExample.h"
 #include"Explode.h"
+#include"InstancingExample.h"
 
 int main()
 {
@@ -33,7 +34,8 @@ int main()
 	//RenderStencil(camera);
 	//RenderBlendTest(camera);
 	//RenderPostPrecessingExample(camera);
-	RenderExplodeModel(camera);
+	//RenderExplodeModel(camera);
+	InstancingExample(camera);
 	return 0;
 }
 

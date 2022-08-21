@@ -164,6 +164,7 @@
     <ClInclude Include="BlendTest.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Explode.h" />
+    <ClInclude Include="InstancingExample.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="PostProcessingExample.h" />

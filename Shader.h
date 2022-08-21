@@ -15,6 +15,7 @@ public:
 	};
 
 	void setVec3(const char* locName, const float x, const float y, const float z);
+	void setVec2(const char* locName, const float x, const float y);
 	void setVec3(const char* locName, glm::vec3 vector);
 	void setFloat(const char* locName, const float val);
 	void setInt(const char* locName, int val);

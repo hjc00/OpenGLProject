@@ -35,6 +35,8 @@ public:
 		}
 	};
 
+	vector<Mesh> meshes;
+	vector<Texture> textures_loaded;
 private:
 	void loadModel(const string& path);
 	void processNode(aiNode* node, const aiScene* scene);
@@ -42,9 +44,7 @@ private:
 	vector<Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType type, string typeName);
 
 private:
-	vector<Texture> textures_loaded;
 	
-	vector<Mesh> meshes;
 	string directory;
 	bool gammaCorrection;
 };

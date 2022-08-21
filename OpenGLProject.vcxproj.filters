@@ -95,6 +95,9 @@
     <ClInclude Include="Explode.h">
       <Filter>Case</Filter>
     </ClInclude>
+    <ClInclude Include="InstancingExample.h">
+      <Filter>Case</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OpenGLProject.rc">

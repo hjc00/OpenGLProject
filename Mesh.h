@@ -53,15 +53,15 @@ public:
 
 	void Draw(Shader& shader);
 
+	unsigned int VAO, objectVBO, EBO;
+	vector<unsigned int> indices;
 private:
 	void setUpMesh();
 
 
 private:
 	vector<Vertex> vertices;
-	vector<unsigned int> indices;
 	vector<Texture> textures;
-	unsigned int VAO, objectVBO, EBO;
 
 };
 
